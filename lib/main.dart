@@ -58,8 +58,10 @@ class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
   void _incrementCounter() {
-    setState(() {
-      //   final generator = esc.Generator(esc.PaperSize.mm72, profile);
+    setState(() async {
+      final profile = await esc.CapabilityProfile.load();
+
+      final generator = esc.Generator(esc.PaperSize.mm72, profile);
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
       // so that the display can reflect the updated values. If we changed
